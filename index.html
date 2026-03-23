@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JEY — Photographe | Capturing Life's Finest Moments</title>
+  <meta name="description"
+    content="JEY Photographe — Spécialiste en photographie de mariage, portrait, lifestyle et événementiel. Des instants précieux, capturés pour l'éternité." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">JEY</div>
+      <div class="loader-bar">
+        <div class="loader-progress" id="loaderProgress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-logo">
+      <img src="PORTFOLIO/JEY SIGNATURE PAYSAGE.png" alt="JEY Signature" class="nav-signature" />
+    </a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">À propos</a>
+      <a href="#gallery" class="nav-link">Galerie</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link">À propos</a>
+    <a href="#gallery" class="mobile-link">Galerie</a>
+    <a href="#services" class="mobile-link">Services</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background-image: url('WEDDING/DSC07460.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('PORTFOLIO/SHOOTING/MEILLEUR 1.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('PORTFOLIO/EVENEMENT /DSC05473.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('PORTFOLIO/LIFESTYLE/Maman Lili.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('WEDDING/DSC09026.jpg')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal-up">Photographe Professionnel</p>
+      <h1 class="hero-title reveal-up">
+        <span class="hero-title-line">L'Art de</span>
+        <span class="hero-title-line italic">Capturer</span>
+        <span class="hero-title-line">l'Instant</span>
+      </h1>
+      <p class="hero-subtitle reveal-up">Mariage · Portrait · Lifestyle · Événement</p>
+      <div class="hero-cta reveal-up">
+        <a href="#gallery" class="btn btn-primary">Découvrir le travail</a>
+        <a href="#contact" class="btn btn-ghost">Réserver une session</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Défiler</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+    <div class="hero-counter">
+      <span class="hero-counter-current" id="heroSlideNum">01</span>
+      <span class="hero-counter-sep">/</span>
+      <span class="hero-counter-total">05</span>
+    </div>
+    <div class="hero-dots" id="heroDots">
+      <button class="hero-dot active" data-slide="0"></button>
+      <button class="hero-dot" data-slide="1"></button>
+      <button class="hero-dot" data-slide="2"></button>
+      <button class="hero-dot" data-slide="3"></button>
+      <button class="hero-dot" data-slide="4"></button>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-image-wrap reveal-left">
+        <img src="PORTFOLIO/IMG_8921.jpeg" alt="JEY Photographe" class="about-image" loading="lazy" />
+        <div class="about-image-accent"></div>
+        <div class="about-badge">
+          <span class="about-badge-num">10+</span>
+          <span class="about-badge-label">Ans d'expérience</span>
+        </div>
+      </div>
+      <div class="about-text reveal-right">
+        <p class="section-eyebrow">À propos</p>
+        <h2 class="section-title">Une vision,<br /><em>une signature</em></h2>
+        <p class="about-desc">
+          Je suis JEY, photographe passionné par l'humain et ses émotions.
+          Chaque image que je crée est une histoire — un fragment de vie figé dans le temps,
+          dont la beauté ne s'efface jamais.
+        </p>
+        <p class="about-desc">
+          Que ce soit lors d'un mariage, d'un shooting portrait ou d'un événement,
+          mon œil cherche toujours ce moment authentique, cette lumière unique,
+          cette émotion vraie qui rend chaque photo inoubliable.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num" data-target="500">0</span>
+            <span class="stat-label">Séances réalisées</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="200">0</span>
+            <span class="stat-label">Mariages capturés</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="98">0</span>
+            <span class="stat-label">% Clients satisfaits</span>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-dark">Travaillons ensemble</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="gallery-header">
+      <p class="section-eyebrow reveal-up">Portfolio</p>
+      <h2 class="section-title reveal-up">Mes Univers<br /><em>Photographiques</em></h2>
+    </div>
+
+    <!-- CATEGORY FILTERS -->
+    <div class="gallery-filters reveal-up" id="galleryFilters">
+      <button class="filter-btn active" data-cat="all">Tout</button>
+      <button class="filter-btn" data-cat="wedding">Mariage</button>
+      <button class="filter-btn" data-cat="shooting">Portrait</button>
+      <button class="filter-btn" data-cat="lifestyle">Lifestyle</button>
+      <button class="filter-btn" data-cat="evenement">Événement</button>
+      <button class="filter-btn" data-cat="deco">Décoration</button>
+      <button class="filter-btn" data-cat="church">Église</button>
+    </div>
+
+    <!-- MASONRY GRID -->
+    <div class="gallery-grid" id="galleryGrid">
+
+      <!-- WEDDING -->
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/1 2.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/1.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/2.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/27.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/3 2.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/3 3.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/3.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/34.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/37.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/38.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/4 2.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/4.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/40.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/41.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/5 2.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/5.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/6.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/7.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/8.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC00221.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/DSC00222.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC00255.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/DSC06787.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC06793.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/DSC06813.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC06823.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/DSC06843.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC06891.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/DSC06988.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC07218.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/DSC07378.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC07460.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/DSC07462.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC07542.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/DSC07553.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC07658.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/DSC07662.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC07682.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/DSC07695.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC08326.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/DSC08458.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC09026.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/DSC09246.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC09248.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="wedding">
+        <img src="WEDDING/DSC09256.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/DSC09537.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="wedding">
+        <img src="WEDDING/KPLIKIM.png" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+      <div class="gallery-item" data-cat="wedding">
+        <img src="WEDDING/PAUL.jpg" alt="Mariage JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Mariage</span></div>
+      </div>
+
+      <!-- SHOOTING / PORTRAIT -->
+      <div class="gallery-item tall" data-cat="shooting">
+        <img src="PORTFOLIO/SHOOTING/MEILLEUR 1.jpg" alt="Portrait JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item" data-cat="shooting">
+        <img src="PORTFOLIO/SHOOTING/MEILLEUR 2.jpg" alt="Portrait JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item" data-cat="shooting">
+        <img src="PORTFOLIO/SHOOTING/LOLO WHITE 5.jpg" alt="Portrait JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="shooting">
+        <img src="PORTFOLIO/SHOOTING/LARIE.jpg" alt="Portrait JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="shooting">
+        <img src="PORTFOLIO/SHOOTING/KOFF'S FAMILY.jpg" alt="Portrait Famille" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item" data-cat="shooting">
+        <img src="PORTFOLIO/SHOOTING/MEILLEUR 9.jpg" alt="Portrait JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item" data-cat="shooting">
+        <img src="PORTFOLIO/SHOOTING/DERI 3.jpg" alt="Portrait JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+
+      <!-- LIFESTYLE -->
+      <div class="gallery-item tall" data-cat="lifestyle">
+        <img src="PORTFOLIO/LIFESTYLE/Maman Lili.jpg" alt="Lifestyle JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Lifestyle</span></div>
+      </div>
+      <div class="gallery-item" data-cat="lifestyle">
+        <img src="PORTFOLIO/LIFESTYLE/DSC07999.JPG" alt="Lifestyle JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Lifestyle</span></div>
+      </div>
+      <div class="gallery-item" data-cat="lifestyle">
+        <img src="PORTFOLIO/LIFESTYLE/DSC08007.JPG" alt="Lifestyle JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Lifestyle</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="lifestyle">
+        <img src="PORTFOLIO/LIFESTYLE/DSC02893.jpg" alt="Lifestyle JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Lifestyle</span></div>
+      </div>
+      <div class="gallery-item" data-cat="lifestyle">
+        <img src="PORTFOLIO/LIFESTYLE/DSC08017.JPG" alt="Lifestyle JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Lifestyle</span></div>
+      </div>
+      <div class="gallery-item" data-cat="lifestyle">
+        <img src="PORTFOLIO/LIFESTYLE/ELVI.jpg" alt="Lifestyle JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Lifestyle</span></div>
+      </div>
+
+      <!-- EVENEMENT -->
+      <div class="gallery-item wide" data-cat="evenement">
+        <img src="PORTFOLIO/EVENEMENT /DSC05473.jpg" alt="Événement JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Événement</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="evenement">
+        <img src="PORTFOLIO/EVENEMENT /DSC05782.jpg" alt="Événement JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Événement</span></div>
+      </div>
+      <div class="gallery-item" data-cat="evenement">
+        <img src="PORTFOLIO/EVENEMENT /DSC05796.jpg" alt="Événement JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Événement</span></div>
+      </div>
+      <div class="gallery-item" data-cat="evenement">
+        <img src="PORTFOLIO/EVENEMENT /DSC05894.jpg" alt="Événement JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Événement</span></div>
+      </div>
+      <div class="gallery-item" data-cat="evenement">
+        <img src="PORTFOLIO/EVENEMENT /DSC09818.jpg" alt="Événement JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Événement</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="evenement">
+        <img src="PORTFOLIO/EVENEMENT /DSC06092.jpg" alt="Événement JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Événement</span></div>
+      </div>
+
+      <!-- DECO -->
+      <div class="gallery-item" data-cat="deco">
+        <img src="PORTFOLIO/DECO/DSC04125.jpg" alt="Décoration JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Décoration</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="deco">
+        <img src="PORTFOLIO/DECO/DSC04265.jpg" alt="Décoration JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Décoration</span></div>
+      </div>
+      <div class="gallery-item" data-cat="deco">
+        <img src="PORTFOLIO/DECO/DSC05313.jpg" alt="Décoration JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Décoration</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="deco">
+        <img src="PORTFOLIO/DECO/DSC09168.jpg" alt="Décoration JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Décoration</span></div>
+      </div>
+      <div class="gallery-item" data-cat="deco">
+        <img src="PORTFOLIO/DECO/DSC09295.jpg" alt="Décoration JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Décoration</span></div>
+      </div>
+
+      <!-- CHURCH -->
+      <div class="gallery-item wide" data-cat="church">
+        <img src="PORTFOLIO/CHURCH/RW 1 .jpg" alt="Église JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Église</span></div>
+      </div>
+      <div class="gallery-item" data-cat="church">
+        <img src="PORTFOLIO/CHURCH/3.jpg" alt="Église JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Église</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="church">
+        <img src="PORTFOLIO/CHURCH/5.jpg" alt="Église JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Église</span></div>
+      </div>
+      <div class="gallery-item" data-cat="church">
+        <img src="PORTFOLIO/CHURCH/RW4.jpg" alt="Église JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Église</span></div>
+      </div>
+      <div class="gallery-item" data-cat="church">
+        <img src="PORTFOLIO/CHURCH/RW5.jpg" alt="Église JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Église</span></div>
+      </div>
+
+      <!-- NOUVELLES PHOTOS -->
+      <div class="gallery-item tall" data-cat="shooting">
+        <img src="1 2.PNG" alt="Photographie JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item" data-cat="shooting">
+        <img src="1.PNG" alt="Photographie JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item" data-cat="shooting">
+        <img src="467769589_1908910852934972_605952580667241259_n.jpg" alt="Photographie JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Portrait</span></div>
+      </div>
+      <div class="gallery-item tall" data-cat="lifestyle">
+        <img src="IMG_5561.PNG" alt="Photographie JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Lifestyle</span></div>
+      </div>
+      <div class="gallery-item" data-cat="lifestyle">
+        <img src="IMG_5562.PNG" alt="Photographie JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Lifestyle</span></div>
+      </div>
+      <div class="gallery-item wide" data-cat="evenement">
+        <img src="Projet Tour F.PNG" alt="Photographie JEY" loading="lazy" />
+        <div class="gallery-overlay"><span>Événement</span></div>
+      </div>
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">✕</button>
+      <button class="lightbox-prev" id="lightboxPrev">‹</button>
+      <button class="lightbox-next" id="lightboxNext">›</button>
+      <div class="lightbox-img-wrap">
+        <img src="" alt="" id="lightboxImg" />
+      </div>
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="services-inner">
+      <div class="services-header">
+        <p class="section-eyebrow reveal-up">Ce que je propose</p>
+        <h2 class="section-title reveal-up">Mes Services<br /><em>Photographiques</em></h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal-up" style="--delay: 0s">
+          <div class="service-icon">♥</div>
+          <h3>Mariage</h3>
+          <p>Chaque mariage est unique. Je capture l'émotion, la joie et les détails précieux de votre jour J avec
+            discrétion et talent.</p>
+          <ul>
+            <li>Préparatifs & cérémonie</li>
+            <li>Séance couple</li>
+            <li>Cocktail & réception</li>
+            <li>Album premium inclus</li>
+          </ul>
+          <a href="#contact" class="service-link">En savoir plus →</a>
+        </div>
+        <div class="service-card reveal-up" style="--delay: 0.1s">
+          <div class="service-icon">◉</div>
+          <h3>Portrait & Shooting</h3>
+          <p>Séances studio ou en extérieur pour mettre en valeur votre personnalité, famille ou projet professionnel.
+          </p>
+          <ul>
+            <li>Portrait individuel</li>
+            <li>Photo de famille</li>
+            <li>Book professionnel</li>
+            <li>Shooting thématique</li>
+          </ul>
+          <a href="#contact" class="service-link">En savoir plus →</a>
+        </div>
+        <div class="service-card reveal-up" style="--delay: 0.2s">
+          <div class="service-icon">★</div>
+          <h3>Événement</h3>
+          <p>Concerts, conférences, soirées privées... Je capture l'énergie de vos événements avec dynamisme et
+            précision.</p>
+          <ul>
+            <li>Événements corporate</li>
+            <li>Soirées & galas</li>
+            <li>Concerts & spectacles</li>
+            <li>Livraison rapide</li>
+          </ul>
+          <a href="#contact" class="service-link">En savoir plus →</a>
+        </div>
+        <div class="service-card reveal-up" style="--delay: 0.3s">
+          <div class="service-icon">⬡</div>
+          <h3>Lifestyle & Décor</h3>
+          <p>Des images de mode de vie authentiques et des photos de décoration qui subliment vos espaces et vos
+            projets.</p>
+          <ul>
+            <li>Photo lifestyle</li>
+            <li>Décoration d'intérieur</li>
+            <li>Contenu réseaux sociaux</li>
+            <li>Direction artistique</li>
+          </ul>
+          <a href="#contact" class="service-link">En savoir plus →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="testimonials-inner">
+      <p class="section-eyebrow reveal-up">Témoignages</p>
+      <h2 class="section-title reveal-up">Ce qu'ils<br /><em>disent de moi</em></h2>
+      <div class="testimonials-track" id="testimonialsTrack">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"JEY a su capturer chaque instant de notre mariage avec une sensibilité et un
+            professionnalisme rares. Les photos sont absolument magnifiques !"</p>
+          <div class="testimonial-author">
+            <span class="testimonial-name">Marie & Paul K.</span>
+            <span class="testimonial-role">Mariés en 2024</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Un photographe exceptionnel ! Il capte la lumière comme personne. Notre séance
+            lifestyle a dépassé toutes nos attentes. On recommande les yeux fermés."</p>
+          <div class="testimonial-author">
+            <span class="testimonial-name">Élodie M.</span>
+            <span class="testimonial-role">Shooting Lifestyle</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Pour notre gala annuel, JEY a livré des photos incroyables en 48h. Son œil
+            artistique et sa discrétion en font un partenaire idéal pour nos événements."</p>
+          <div class="testimonial-author">
+            <span class="testimonial-name">Thomas L.</span>
+            <span class="testimonial-role">Directeur événementiel</span>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Le shooting portrait pour ma famille était un vrai moment de bonheur. JEY a mis
+            tout le monde à l'aise et le résultat est splendide !"</p>
+          <div class="testimonial-author">
+            <span class="testimonial-name">Aïssatou D.</span>
+            <span class="testimonial-role">Portrait Famille</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonials-nav">
+        <button class="testimonial-dot active" data-idx="0"></button>
+        <button class="testimonial-dot" data-idx="1"></button>
+        <button class="testimonial-dot" data-idx="2"></button>
+        <button class="testimonial-dot" data-idx="3"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-info reveal-left">
+        <p class="section-eyebrow">Contact</p>
+        <h2 class="section-title">Réservons<br /><em>votre session</em></h2>
+        <p class="contact-desc">Chaque projet est unique. Parlons de vos envies, de votre vision — ensemble, créons
+          quelque chose d'exceptionnel.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-icon">✉</span>
+            <span>jeremieleba344@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">✆</span>
+            <span>+225 07 88 17 04 83</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-icon">◎</span>
+            <span>Abidjan, Côte d'Ivoire</span>
+          </div>
+        </div>
+        <div class="contact-social">
+          <a href="https://www.instagram.com/jeremieleba_?igsh=djUxdmhmMTU1YzI2&utm_source=qr" class="social-link" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="2" width="20" height="20" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/share/1DvG66n7N4/?mibextid=wwXIfr" class="social-link" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="https://www.tiktok.com/@jeremieleba252?_r=1&_t=ZS-94vjrdHsIMq" class="social-link" target="_blank" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 12a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+              <path d="M15 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+              <path d="M15 2v13a4 4 0 1 1-4-4" />
+              <path d="M15 7a4 4 0 0 0 4-4" />
+            </svg>
+          </a>
+          <a href="https://wa.me/2250788170483" class="social-link" target="_blank" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <form class="contact-form reveal-right" id="contactForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Prénom</label>
+            <input type="text" id="fname" name="fname" placeholder="Votre prénom" required />
+          </div>
+          <div class="form-group">
+            <label for="lname">Nom</label>
+            <input type="text" id="lname" name="lname" placeholder="Votre nom" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="votre@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="service">Type de prestation</label>
+          <select id="service" name="service">
+            <option value="">Sélectionner...</option>
+            <option value="mariage">Mariage</option>
+            <option value="portrait">Portrait / Shooting</option>
+            <option value="evenement">Événement</option>
+            <option value="lifestyle">Lifestyle</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Parlez-moi de votre projet..."
+            required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+          <span>Envoyer le message</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+        <div class="form-success" id="formSuccess">
+          <span>✓</span> Merci ! Votre message a bien été envoyé. Je vous réponds sous 24h.
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="PORTFOLIO/SIGNATURE JEY.png" alt="JEY" class="footer-sig" />
+      </div>
+      <p class="footer-copy">© 2024 JEY Photographe. Tous droits réservés.</p>
+      <p class="footer-tagline"><em>Capturer l'instant. Sublimer l'émotion.</em></p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP POPUP -->
+  <a href="https://wa.me/2250788170483" class="whatsapp-popup" target="_blank" aria-label="Contact sur WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path
+        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    </svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
