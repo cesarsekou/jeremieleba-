@@ -1,0 +1,634 @@
+{
+  "site": {
+    "title": "JEY — Photographe | Capturing Life's Finest Moments",
+    "description": "JEY Photographe — Spécialiste en photographie de mariage, portrait, lifestyle et événementiel. Des instants précieux, capturés pour l'éternité."
+  },
+  "hero": {
+    "eyebrow": "Studio Photographique Premium",
+    "title": "L'Art de <em>Capturer</em> l'Instant",
+    "subtitle": "Mariage · Portrait · Lifestyle · Événement",
+    "ctaText": "Découvrir le travail",
+    "ctaLink": "#gallery",
+    "cta2Text": "Réserver une session",
+    "cta2Link": "#contact",
+    "slides": [
+      "WEDDING/DSC07460.jpg",
+      "PORTFOLIO/SHOOTING/MEILLEUR 1.jpg",
+      "PORTFOLIO/EVENEMENT /DSC05473.jpg",
+      "PORTFOLIO/LIFESTYLE/Maman Lili.jpg",
+      "WEDDING/DSC09026.jpg"
+    ]
+  },
+  "about": {
+    "image": "PORTFOLIO/IMG_8921.jpeg",
+    "experience": "10+",
+    "eyebrow": "À propos",
+    "title": "Une vision,<br /><em>une signature</em>",
+    "descParagraphs": [
+      "Je suis JEY, photographe passionné par l'humain et ses émotions. Chaque image que je crée est une histoire — un fragment de vie figé dans le temps, dont la beauté ne s'efface jamais.",
+      "Que ce soit lors d'un mariage, d'un shooting portrait ou d'un événement, mon œil cherche toujours ce moment authentique, cette lumière unique, cette émotion vraie qui rend chaque photo inoubliable."
+    ],
+    "stats": [
+      {
+        "num": 500,
+        "label": "Séances réalisées"
+      },
+      {
+        "num": 200,
+        "label": "Mariages capturés"
+      },
+      {
+        "num": 98,
+        "label": "% Clients satisfaits"
+      }
+    ],
+    "ctaText": "Travaillons ensemble"
+  },
+  "gallery": [
+    {
+      "src": "WEDDING/1 2.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/1.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/2.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/27.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/3 2.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/3 3.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/3.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/34.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/37.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/38.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/4 2.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/4.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/40.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/41.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/5 2.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/5.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/6.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/7.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/8.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC00221.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC00222.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC00255.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC06787.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC06793.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC06813.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC06823.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC06843.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC06891.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC06988.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07218.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07378.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07460.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07462.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07542.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07553.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07658.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07662.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07682.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC07695.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC08326.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC08458.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC09026.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC09246.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC09248.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC09256.jpg",
+      "cat": "wedding",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/DSC09537.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/KPLIKIM.jpg",
+      "cat": "wedding",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "WEDDING/PAUL.jpg",
+      "cat": "wedding",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/SHOOTING/MEILLEUR 1.jpg",
+      "cat": "shooting",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/SHOOTING/MEILLEUR 2.jpg",
+      "cat": "shooting",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/SHOOTING/LOLO WHITE 5.jpg",
+      "cat": "shooting",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/SHOOTING/LARIE.jpg",
+      "cat": "shooting",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/SHOOTING/KOFF'S FAMILY.jpg",
+      "cat": "shooting",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/SHOOTING/MEILLEUR 9.jpg",
+      "cat": "shooting",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/SHOOTING/DERI 3.jpg",
+      "cat": "shooting",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/LIFESTYLE/Maman Lili.jpg",
+      "cat": "lifestyle",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/LIFESTYLE/DSC07999.JPG",
+      "cat": "lifestyle",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/LIFESTYLE/DSC08007.JPG",
+      "cat": "lifestyle",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/LIFESTYLE/DSC02893.jpg",
+      "cat": "lifestyle",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/LIFESTYLE/DSC08017.JPG",
+      "cat": "lifestyle",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/LIFESTYLE/ELVI.jpg",
+      "cat": "lifestyle",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/EVENEMENT /DSC05473.jpg",
+      "cat": "evenement",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/EVENEMENT /DSC05782.jpg",
+      "cat": "evenement",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/EVENEMENT /DSC05796.jpg",
+      "cat": "evenement",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/EVENEMENT /DSC05894.jpg",
+      "cat": "evenement",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/EVENEMENT /DSC09818.jpg",
+      "cat": "evenement",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/EVENEMENT /DSC06092.jpg",
+      "cat": "evenement",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/DECO/DSC04125.jpg",
+      "cat": "deco",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/DECO/DSC04265.jpg",
+      "cat": "deco",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/DECO/DSC05313.jpg",
+      "cat": "deco",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/DECO/DSC09168.jpg",
+      "cat": "deco",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/DECO/DSC09295.jpg",
+      "cat": "deco",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/CHURCH/RW 1 .jpg",
+      "cat": "church",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/CHURCH/3.jpg",
+      "cat": "church",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/CHURCH/5.jpg",
+      "cat": "church",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/CHURCH/RW4.jpg",
+      "cat": "church",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "PORTFOLIO/CHURCH/RW5.jpg",
+      "cat": "church",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "1 2.jpg",
+      "cat": "shooting",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "1.jpg",
+      "cat": "shooting",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "467769589_1908910852934972_605952580667241259_n.jpg",
+      "cat": "shooting",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "IMG_5561.jpg",
+      "cat": "lifestyle",
+      "layout": "tall",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "IMG_5562.jpg",
+      "cat": "lifestyle",
+      "layout": "normal",
+      "alt": "Photographie JEY"
+    },
+    {
+      "src": "Projet Tour F.jpg",
+      "cat": "evenement",
+      "layout": "wide",
+      "alt": "Photographie JEY"
+    }
+  ],
+  "services": [
+    {
+      "icon": "♥",
+      "title": "Mariage",
+      "desc": "Chaque mariage est unique. Je capture l'émotion, la joie et les détails précieux de votre jour J avec discrétion et talent.",
+      "items": [
+        "Préparatifs & cérémonie",
+        "Séance couple",
+        "Cocktail & réception",
+        "Album premium inclus"
+      ],
+      "link": "#contact"
+    },
+    {
+      "icon": "◉",
+      "title": "Portrait & Shooting",
+      "desc": "Séances studio ou en extérieur pour mettre en valeur votre personnalité, famille ou projet professionnel.",
+      "items": [
+        "Portrait individuel",
+        "Photo de famille",
+        "Book professionnel",
+        "Shooting thématique"
+      ],
+      "link": "#contact"
+    },
+    {
+      "icon": "★",
+      "title": "Événement",
+      "desc": "Concerts, conférences, soirées privées... Je capture l'énergie de vos événements avec dynamisme et précision.",
+      "items": [
+        "Événements corporate",
+        "Soirées & galas",
+        "Concerts & spectacles",
+        "Livraison rapide"
+      ],
+      "link": "#contact"
+    },
+    {
+      "icon": "⬡",
+      "title": "Lifestyle & Décor",
+      "desc": "Des images de mode de vie authentiques et des photos de décoration qui subliment vos espaces et vos projets.",
+      "items": [
+        "Photo lifestyle",
+        "Décoration d'intérieur",
+        "Contenu réseaux sociaux",
+        "Direction artistique"
+      ],
+      "link": "#contact"
+    }
+  ],
+  "testimonials": [
+    {
+      "author": "Marie & Paul K.",
+      "role": "Mariés en 2024",
+      "stars": 5,
+      "text": "\"JEY a su capturer chaque instant de notre mariage avec une sensibilité et un professionnalisme rares. Les photos sont absolument magnifiques !\""
+    },
+    {
+      "author": "Élodie M.",
+      "role": "Shooting Lifestyle",
+      "stars": 5,
+      "text": "\"Un photographe exceptionnel ! Il capte la lumière comme personne. Notre séance lifestyle a dépassé toutes nos attentes. On recommande les yeux fermés.\""
+    },
+    {
+      "author": "Thomas L.",
+      "role": "Directeur événementiel",
+      "stars": 5,
+      "text": "\"Pour notre gala annuel, JEY a livré des photos incroyables en 48h. Son œil artistique et sa discrétion en font un partenaire idéal pour nos événements.\""
+    },
+    {
+      "author": "Aïssatou D.",
+      "role": "Portrait Famille",
+      "stars": 5,
+      "text": "\"Le shooting portrait pour ma famille était un vrai moment de bonheur. JEY a mis tout le monde à l'aise et le résultat est splendide !\""
+    }
+  ],
+  "contact": {
+    "email": "jeremieleba344@gmail.com",
+    "phone": "+225 07 88 17 04 83",
+    "address": "Abidjan, Côte d'Ivoire",
+    "social": {
+      "instagram": "https://www.instagram.com/jeremieleba_?igsh=djUxdmhmMTU1YzI2&utm_source=qr",
+      "facebook": "https://www.facebook.com/share/1DvG66n7N4/?mibextid=wwXIfr",
+      "tiktok": "https://www.tiktok.com/@jeremieleba252?_r=1&_t=ZS-94vjrdHsIMq",
+      "whatsapp": "https://wa.me/2250788170483"
+    }
+  }
+}

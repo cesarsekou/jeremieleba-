@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administration — JEY Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-card: rgba(255, 255, 255, 0.03);
+      --bg-input: rgba(255, 255, 255, 0.05);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #e5e5e5;
+      --text-muted: #8e8e93;
+      --primary: #c5a880;
+      --primary-hover: #b4966e;
+      --danger: #ff453a;
+      --success: #30d158;
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-sans: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* AUTH SCREEN */
+    .auth-container {
+      margin: auto;
+      max-width: 420px;
+      width: 100%;
+      padding: 2.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      transition: all 0.5s ease;
+    }
+
+    .auth-logo {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .auth-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: var(--bg-input);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: #fff;
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      transition: border-color 0.3s, background-color 0.3s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+      width: 100%;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-danger {
+      background: rgba(255, 69, 58, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(255, 69, 58, 0.2);
+    }
+
+    .btn-danger:hover {
+      background: rgba(255, 69, 58, 0.25);
+    }
+
+    .auth-error {
+      color: var(--danger);
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      display: none;
+    }
+
+    /* MAIN ADMIN PANEL */
+    .admin-wrapper {
+      display: none;
+      max-width: 1200px;
+      width: 100%;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    header.admin-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .admin-title h1 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    .admin-title p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* TABS */
+    .tabs-nav {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2rem;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+    }
+
+    .tab-btn.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* CARDS */
+    .admin-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .admin-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      color: #fff;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    /* LISTS & ITEMS */
+    .dynamic-list-item {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+      background: rgba(255, 255, 255, 0.01);
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .dynamic-list-item input {
+      flex: 1;
+    }
+
+    /* GALLERY PANEL */
+    .gallery-manager-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-mgr-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gallery-mgr-thumb {
+      height: 160px;
+      background-size: cover;
+      background-position: center;
+      background-color: #1a1a1a;
+      position: relative;
+    }
+
+    .gallery-mgr-info {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      flex: 1;
+    }
+
+    .gallery-mgr-info select,
+    .gallery-mgr-info input {
+      padding: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .gallery-add-form {
+      background: rgba(197, 168, 128, 0.03);
+      border: 1px dashed var(--primary);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    /* NOTIFICATION */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--success);
+      color: #000;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      transform: translateY(150%);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast.show {
+      transform: translateY(0);
+    }
+
+    .toast.error {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    /* GRID FOR TEXTS */
+    .inputs-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- AUTHENTICATION FORM -->
+  <div class="auth-container" id="authBlock">
+    <div class="auth-logo">JEY</div>
+    <div class="auth-subtitle">Espace d'Administration</div>
+    <form id="authForm">
+      <div class="form-group">
+        <label for="adminPass">Mot de passe</label>
+        <input type="password" id="adminPass" class="form-control" placeholder="Entrez le mot de passe" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Se Connecter</button>
+      <div class="auth-error" id="authError">Mot de passe incorrect. Réessayez.</div>
+    </form>
+  </div>
+
+  <!-- MAIN ADMIN CONSOLE -->
+  <div class="admin-wrapper" id="adminWrapper">
+    <header class="admin-header">
+      <div class="admin-title">
+        <h1>JEY Administration</h1>
+        <p id="saveModeLabel">Chargement des paramètres...</p>
+      </div>
+      <div class="header-actions">
+        <button class="btn btn-secondary" id="previewBtn" style="width: auto;">Aperçu direct</button>
+        <button class="btn btn-primary" id="saveAllBtn" style="width: auto;">Enregistrer</button>
+      </div>
+    </header>
+
+    <!-- TABS NAVIGATION -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" data-tab="tab-general">Site & Hero</button>
+      <button class="tab-btn" data-tab="tab-about">À Propos</button>
+      <button class="tab-btn" data-tab="tab-gallery">Galerie</button>
+      <button class="tab-btn" data-tab="tab-services">Services</button>
+      <button class="tab-btn" data-tab="tab-testimonials">Témoignages</button>
+      <button class="tab-btn" data-tab="tab-contact">Contact</button>
+    </div>
+
+    <!-- TAB: GENERAL & HERO -->
+    <div class="tab-content active" id="tab-general">
+      <div class="admin-card">
+        <div class="admin-card-title">Configuration Générale du Site</div>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Titre de l'onglet du navigateur</label>
+            <input type="text" id="siteTitle" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Description SEO (Google)</label>
+            <input type="text" id="siteDesc" class="form-control" />
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-title">Section d'Accueil (Hero)</div>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Sur-titre (Surtitre)</label>
+            <input type="text" id="heroEyebrow" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Titre Principal (HTML supporté, utilisez &lt;em&gt; pour l'italique)</label>
+            <input type="text" id="heroTitle" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Sous-titre (Spécialités)</label>
+          <input type="text" id="heroSubtitle" class="form-control" />
+        </div>
+
+        <div class="inputs-row" style="margin-top: 1.5rem;">
+          <div class="form-group">
+            <label>Texte Bouton 1</label>
+            <input type="text" id="heroCtaText" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Lien Bouton 1</label>
+            <input type="text" id="heroCtaLink" class="form-control" />
+          </div>
+        </div>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Texte Bouton 2</label>
+            <input type="text" id="heroCta2Text" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Lien Bouton 2</label>
+            <input type="text" id="heroCta2Link" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 1.5rem;">
+          <label>Images du Carrousel (Glisser-Déposer / Chemins vers les images)</label>
+          <div id="heroSlidesList"></div>
+          <button class="btn btn-secondary" id="addHeroSlideBtn" style="margin-top: 0.5rem; width: auto;">+ Ajouter une diapo</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: ABOUT -->
+    <div class="tab-content" id="tab-about">
+      <div class="admin-card">
+        <div class="admin-card-title">Présentation (À Propos)</div>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Image de Profil (Chemin ou URL)</label>
+            <input type="text" id="aboutImage" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Années d'expérience (Badge)</label>
+            <input type="text" id="aboutExperience" class="form-control" />
+          </div>
+        </div>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Surtitre</label>
+            <input type="text" id="aboutEyebrow" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Titre principal</label>
+            <input type="text" id="aboutTitle" class="form-control" />
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 1.5rem;">
+          <label>Paragraphes de présentation (Biographie)</label>
+          <div id="aboutParagraphsList"></div>
+          <button class="btn btn-secondary" id="addAboutParagraphBtn" style="margin-top: 0.5rem; width: auto;">+ Ajouter un paragraphe</button>
+        </div>
+
+        <div class="form-group" style="margin-top: 2rem;">
+          <label>Statistiques compteurs</label>
+          <div id="aboutStatsList" class="inputs-row"></div>
+        </div>
+
+        <div class="form-group">
+          <label>Texte Bouton de contact</label>
+          <input type="text" id="aboutCtaText" class="form-control" style="max-width: 300px;" />
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: GALLERY -->
+    <div class="tab-content" id="tab-gallery">
+      <div class="gallery-add-form">
+        <h3 style="font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 1rem;">Ajouter une Photo à la Galerie</h3>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Chemin de la photo (Ex: WEDDING/ma_photo.jpg)</label>
+            <input type="text" id="newPhotoSrc" class="form-control" placeholder="WEDDING/..." />
+          </div>
+          <div class="form-group">
+            <label>Catégorie</label>
+            <select id="newPhotoCat" class="form-control">
+              <option value="wedding">Mariage</option>
+              <option value="shooting">Portrait</option>
+              <option value="lifestyle">Lifestyle</option>
+              <option value="evenement">Événement</option>
+              <option value="deco">Décoration</option>
+              <option value="church">Église</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Format de grille</label>
+            <select id="newPhotoLayout" class="form-control">
+              <option value="normal">Normal (Carré/Standard)</option>
+              <option value="tall">Haut (Portrait allongé)</option>
+              <option value="wide">Large (Paysage double)</option>
+            </select>
+          </div>
+        </div>
+        <div class="inputs-row" style="margin-top: 1rem;">
+          <div class="form-group">
+            <label>Texte alternatif (Description courte)</label>
+            <input type="text" id="newPhotoAlt" class="form-control" placeholder="Description de la photo" value="Photographie JEY" />
+          </div>
+          <div class="form-group" style="display: flex; align-items: flex-end;">
+            <button class="btn btn-primary" id="addPhotoBtn">Ajouter la photo</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-title">Gérer les Photos Existantes (<span id="photoCount">0</span> photos)</div>
+        <div class="gallery-manager-grid" id="galleryGridMgr">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: SERVICES -->
+    <div class="tab-content" id="tab-services">
+      <div id="servicesList">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+
+    <!-- TAB: TESTIMONIALS -->
+    <div class="tab-content" id="tab-testimonials">
+      <div class="admin-card">
+        <div class="admin-card-title">Témoignages Clients</div>
+        <div id="testimonialsList" style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <!-- Dynamically populated -->
+        </div>
+        <button class="btn btn-secondary" id="addTestimonialBtn" style="width: auto;">+ Ajouter un témoignage</button>
+      </div>
+    </div>
+
+    <!-- TAB: CONTACT -->
+    <div class="tab-content" id="tab-contact">
+      <div class="admin-card">
+        <div class="admin-card-title">Informations de Contact</div>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Adresse E-mail</label>
+            <input type="email" id="contactEmail" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Numéro de Téléphone</label>
+            <input type="text" id="contactPhone" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Localisation / Adresse</label>
+          <input type="text" id="contactAddress" class="form-control" />
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-title">Réseaux Sociaux</div>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Lien Instagram</label>
+            <input type="text" id="socialInstagram" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Lien Facebook</label>
+            <input type="text" id="socialFacebook" class="form-control" />
+          </div>
+        </div>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Lien TikTok</label>
+            <input type="text" id="socialTiktok" class="form-control" />
+          </div>
+          <div class="form-group">
+            <label>Lien de redirection WhatsApp (wa.me)</label>
+            <input type="text" id="socialWhatsapp" class="form-control" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST ALERT -->
+  <div class="toast" id="adminToast">Modifications enregistrées !</div>
+
+  <script>
+    // --- AUTHENTICATION ---
+    const correctPass = "JEY2026";
+    const authBlock = document.getElementById('authBlock');
+    const authForm = document.getElementById('authForm');
+    const adminPass = document.getElementById('adminPass');
+    const authError = document.getElementById('authError');
+    const adminWrapper = document.getElementById('adminWrapper');
+
+    // Vérifier si déjà authentifié dans cette session
+    if (sessionStorage.getItem('jey_authenticated') === 'true') {
+      showAdminPanel();
+    }
+
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (adminPass.value === correctPass) {
+        sessionStorage.setItem('jey_authenticated', 'true');
+        showAdminPanel();
+      } else {
+        authError.style.display = 'block';
+        adminPass.value = '';
+        setTimeout(() => { authError.style.display = 'none'; }, 4000);
+      }
+    });
+
+    function showAdminPanel() {
+      authBlock.style.opacity = '0';
+      setTimeout(() => {
+        authBlock.style.display = 'none';
+        adminWrapper.style.display = 'block';
+        setTimeout(() => { adminWrapper.style.opacity = '1'; }, 50);
+        initAdmin();
+      }, 500);
+    }
+
+    // --- ADMIN PANEL CORE LOGIC ---
+    let siteData = null;
+    let isLocalServer = false;
+
+    // Détection du mode de sauvegarde
+    async function detectSaveMode() {
+      const saveModeLabel = document.getElementById('saveModeLabel');
+      try {
+        const res = await fetch('/api/status');
+        if (res.ok) {
+          const status = await res.json();
+          if (status.status === 'ok') {
+            isLocalServer = true;
+            saveModeLabel.textContent = "Mode : Serveur Local (Enregistrement automatique direct activé)";
+            saveModeLabel.style.color = "var(--success)";
+            return;
+          }
+        }
+      } catch (e) {}
+      isLocalServer = false;
+      saveModeLabel.textContent = "Mode : Statique (Téléchargement du fichier data.json à l'enregistrement)";
+      saveModeLabel.style.color = "var(--text-muted)";
+    }
+
+    // Toast Notification
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('adminToast');
+      toast.textContent = message;
+      toast.className = 'toast';
+      if (isError) toast.classList.add('error');
+      toast.classList.add('show');
+      setTimeout(() => { toast.classList.remove('show'); }, 3000);
+    }
+
+    // Chargement initial des données
+    async function loadData() {
+      try {
+        const local = localStorage.getItem('jey_portfolio_data');
+        if (local) {
+          siteData = JSON.parse(local);
+        } else {
+          const res = await fetch('data.json');
+          if (res.ok) {
+            siteData = await res.json();
+          }
+        }
+      } catch (err) {
+        showToast("Erreur lors de la récupération des données", true);
+      }
+    }
+
+    // Initialisation
+    async function initAdmin() {
+      await detectSaveMode();
+      await loadData();
+      if (!siteData) return;
+
+      bindTabs();
+      fillForms();
+    }
+
+    // Gestion Onglets
+    function bindTabs() {
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          document.getElementById(btn.dataset.tab).classList.add('active');
+        });
+      });
+    }
+
+    // Remplissage des formulaires
+    function fillForms() {
+      // General & SEO
+      document.getElementById('siteTitle').value = siteData.site.title || '';
+      document.getElementById('siteDesc').value = siteData.site.description || '';
+
+      // Hero
+      document.getElementById('heroEyebrow').value = siteData.hero.eyebrow || '';
+      document.getElementById('heroTitle').value = siteData.hero.title || '';
+      document.getElementById('heroSubtitle').value = siteData.hero.subtitle || '';
+      document.getElementById('heroCtaText').value = siteData.hero.ctaText || '';
+      document.getElementById('heroCtaLink').value = siteData.hero.ctaLink || '';
+      document.getElementById('heroCta2Text').value = siteData.hero.cta2Text || '';
+      document.getElementById('heroCta2Link').value = siteData.hero.cta2Link || '';
+
+      // Hero slides list
+      renderHeroSlides();
+
+      // About
+      document.getElementById('aboutImage').value = siteData.about.image || '';
+      document.getElementById('aboutExperience').value = siteData.about.experience || '';
+      document.getElementById('aboutEyebrow').value = siteData.about.eyebrow || '';
+      document.getElementById('aboutTitle').value = siteData.about.title || '';
+      document.getElementById('aboutCtaText').value = siteData.about.ctaText || '';
+
+      // About Bio Paragraphs
+      renderAboutParagraphs();
+
+      // About Stats
+      renderAboutStats();
+
+      // Gallery Grid Manager
+      renderGalleryManager();
+
+      // Services List
+      renderServicesManager();
+
+      // Testimonials List
+      renderTestimonialsManager();
+
+      // Contact Details
+      document.getElementById('contactEmail').value = siteData.contact.email || '';
+      document.getElementById('contactPhone').value = siteData.contact.phone || '';
+      document.getElementById('contactAddress').value = siteData.contact.address || '';
+      if (siteData.contact.social) {
+        document.getElementById('socialInstagram').value = siteData.contact.social.instagram || '';
+        document.getElementById('socialFacebook').value = siteData.contact.social.facebook || '';
+        document.getElementById('socialTiktok').value = siteData.contact.social.tiktok || '';
+        document.getElementById('socialWhatsapp').value = siteData.contact.social.whatsapp || '';
+      }
+    }
+
+    // Rendu Hero Slides List
+    function renderHeroSlides() {
+      const container = document.getElementById('heroSlidesList');
+      container.innerHTML = '';
+      siteData.hero.slides.forEach((slide, idx) => {
+        const item = document.createElement('div');
+        item.className = 'dynamic-list-item';
+        item.innerHTML = `
+          <input type="text" class="form-control hero-slide-path" value="${slide}" data-idx="${idx}" />
+          <button class="btn btn-danger" style="width:auto; padding: 0.6rem 1rem;" onclick="removeHeroSlide(${idx})">Supprimer</button>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    window.removeHeroSlide = function(idx) {
+      siteData.hero.slides.splice(idx, 1);
+      renderHeroSlides();
+    };
+
+    document.getElementById('addHeroSlideBtn').addEventListener('click', () => {
+      siteData.hero.slides.push('WEDDING/nouveau.jpg');
+      renderHeroSlides();
+    });
+
+    // Rendu About Paragraphs
+    function renderAboutParagraphs() {
+      const container = document.getElementById('aboutParagraphsList');
+      container.innerHTML = '';
+      siteData.about.descParagraphs.forEach((para, idx) => {
+        const item = document.createElement('div');
+        item.className = 'dynamic-list-item';
+        item.innerHTML = `
+          <textarea class="form-control about-para-text" rows="3" data-idx="${idx}">${para}</textarea>
+          <button class="btn btn-danger" style="width:auto; padding: 0.6rem 1rem;" onclick="removeAboutParagraph(${idx})">Supprimer</button>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    window.removeAboutParagraph = function(idx) {
+      siteData.about.descParagraphs.splice(idx, 1);
+      renderAboutParagraphs();
+    };
+
+    document.getElementById('addAboutParagraphBtn').addEventListener('click', () => {
+      siteData.about.descParagraphs.push('Nouveau paragraphe de présentation.');
+      renderAboutParagraphs();
+    });
+
+    // Rendu Stats
+    function renderAboutStats() {
+      const container = document.getElementById('aboutStatsList');
+      container.innerHTML = '';
+      siteData.about.stats.forEach((stat, idx) => {
+        const col = document.createElement('div');
+        col.className = 'admin-card';
+        col.style.padding = '1.2rem';
+        col.style.flex = '1';
+        col.style.minWidth = '200px';
+        col.innerHTML = `
+          <div class="form-group" style="margin-bottom: 0.8rem;">
+            <label>Nombre cible (Ex: 500)</label>
+            <input type="number" class="form-control stat-num-input" value="${stat.num}" data-idx="${idx}" />
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label>Libellé (Ex: Séances réalisées)</label>
+            <input type="text" class="form-control stat-label-input" value="${stat.label}" data-idx="${idx}" />
+          </div>
+        `;
+        container.appendChild(col);
+      });
+    }
+
+    // Rendu Gallery Manager
+    function renderGalleryManager() {
+      const countLabel = document.getElementById('photoCount');
+      const grid = document.getElementById('galleryGridMgr');
+      grid.innerHTML = '';
+
+      if (!siteData.gallery) siteData.gallery = [];
+      countLabel.textContent = siteData.gallery.length;
+
+      siteData.gallery.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = 'gallery-mgr-card';
+        card.innerHTML = `
+          <div class="gallery-mgr-thumb" style="background-image: url('${item.src}')"></div>
+          <div class="gallery-mgr-info">
+            <div class="form-group" style="margin-bottom:0.5rem;">
+              <label>Source de l'image</label>
+              <input type="text" class="form-control gallery-src-input" value="${item.src}" data-idx="${idx}" />
+            </div>
+            <div class="form-group" style="margin-bottom:0.5rem;">
+              <label>Catégorie</label>
+              <select class="form-control gallery-cat-select" data-idx="${idx}">
+                <option value="wedding" ${item.cat === 'wedding' ? 'selected' : ''}>Mariage</option>
+                <option value="shooting" ${item.cat === 'shooting' ? 'selected' : ''}>Portrait</option>
+                <option value="lifestyle" ${item.cat === 'lifestyle' ? 'selected' : ''}>Lifestyle</option>
+                <option value="evenement" ${item.cat === 'evenement' ? 'selected' : ''}>Événement</option>
+                <option value="deco" ${item.cat === 'deco' ? 'selected' : ''}>Décoration</option>
+                <option value="church" ${item.cat === 'church' ? 'selected' : ''}>Église</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom:0.8rem;">
+              <label>Layout Grille</label>
+              <select class="form-control gallery-layout-select" data-idx="${idx}">
+                <option value="normal" ${item.layout === 'normal' ? 'selected' : ''}>Normal</option>
+                <option value="tall" ${item.layout === 'tall' ? 'selected' : ''}>Tall (Haute)</option>
+                <option value="wide" ${item.layout === 'wide' ? 'selected' : ''}>Wide (Large)</option>
+              </select>
+            </div>
+            <button class="btn btn-danger" style="margin-top:auto;" onclick="deleteGalleryItem(${idx})">Supprimer</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    window.deleteGalleryItem = function(idx) {
+      siteData.gallery.splice(idx, 1);
+      renderGalleryManager();
+    };
+
+    // Ajouter Photo
+    document.getElementById('addPhotoBtn').addEventListener('click', () => {
+      const src = document.getElementById('newPhotoSrc').value.trim();
+      const cat = document.getElementById('newPhotoCat').value;
+      const layout = document.getElementById('newPhotoLayout').value;
+      const alt = document.getElementById('newPhotoAlt').value;
+
+      if (!src) {
+        showToast("Veuillez spécifier le chemin de la photo", true);
+        return;
+      }
+
+      siteData.gallery.unshift({ src, cat, layout, alt });
+      renderGalleryManager();
+
+      document.getElementById('newPhotoSrc').value = '';
+      showToast("Photo ajoutée à la galerie !");
+    });
+
+    // Rendu Services Manager
+    function renderServicesManager() {
+      const container = document.getElementById('servicesList');
+      container.innerHTML = '';
+
+      siteData.services.forEach((s, sIdx) => {
+        const card = document.createElement('div');
+        card.className = 'admin-card';
+        card.innerHTML = `
+          <div class="admin-card-title">Service ${sIdx + 1} : ${s.title}</div>
+          <div class="inputs-row">
+            <div class="form-group">
+              <label>Titre du Service</label>
+              <input type="text" class="form-control service-title" value="${s.title}" data-idx="${sIdx}" />
+            </div>
+            <div class="form-group">
+              <label>Icône (Caractère unique)</label>
+              <input type="text" class="form-control service-icon" value="${s.icon}" data-idx="${sIdx}" style="max-width: 80px; text-align: center;" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description du Service</label>
+            <textarea class="form-control service-desc" rows="3" data-idx="${sIdx}">${s.desc}</textarea>
+          </div>
+          <div class="form-group">
+            <label>Éléments de liste (Prestations incluses)</label>
+            <div id="serviceItems-${sIdx}"></div>
+            <button class="btn btn-secondary" style="margin-top:0.5rem; width:auto;" onclick="addServiceBullet(${sIdx})">+ Ajouter un élément</button>
+          </div>
+        `;
+        container.appendChild(card);
+
+        // Render service bullets
+        renderServiceBullets(sIdx);
+      });
+    }
+
+    function renderServiceBullets(sIdx) {
+      const parent = document.getElementById(`serviceItems-${sIdx}`);
+      parent.innerHTML = '';
+      siteData.services[sIdx].items.forEach((item, itemIdx) => {
+        const row = document.createElement('div');
+        row.className = 'dynamic-list-item';
+        row.style.marginBottom = '0.5rem';
+        row.innerHTML = `
+          <input type="text" class="form-control service-bullet-input" value="${item}" data-sidx="${sIdx}" data-idx="${itemIdx}" />
+          <button class="btn btn-danger" style="width:auto; padding:0.5rem 0.8rem;" onclick="removeServiceBullet(${sIdx}, ${itemIdx})">✕</button>
+        `;
+        parent.appendChild(row);
+      });
+    }
+
+    window.addServiceBullet = function(sIdx) {
+      siteData.services[sIdx].items.push("Nouvelle prestation incluse");
+      renderServiceBullets(sIdx);
+    };
+
+    window.removeServiceBullet = function(sIdx, itemIdx) {
+      siteData.services[sIdx].items.splice(itemIdx, 1);
+      renderServiceBullets(sIdx);
+    };
+
+    // Rendu Testimonials Manager
+    function renderTestimonialsManager() {
+      const container = document.getElementById('testimonialsList');
+      container.innerHTML = '';
+
+      siteData.testimonials.forEach((t, idx) => {
+        const item = document.createElement('div');
+        item.className = 'dynamic-list-item';
+        item.style.flexDirection = 'column';
+        item.style.alignItems = 'stretch';
+        item.innerHTML = `
+          <div class="inputs-row" style="margin-bottom: 0.5rem;">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Auteur</label>
+              <input type="text" class="form-control testimonial-author" value="${t.author}" data-idx="${idx}" />
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Rôle / Date</label>
+              <input type="text" class="form-control testimonial-role" value="${t.role}" data-idx="${idx}" />
+            </div>
+            <div class="form-group" style="margin-bottom:0; max-width: 120px;">
+              <label>Étoiles (1 à 5)</label>
+              <input type="number" class="form-control testimonial-stars" min="1" max="5" value="${t.stars}" data-idx="${idx}" />
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:0.5rem;">
+            <label>Texte du témoignage</label>
+            <textarea class="form-control testimonial-text" rows="3" data-idx="${idx}">${t.text}</textarea>
+          </div>
+          <button class="btn btn-danger" style="align-self: flex-end; width: auto; padding: 0.5rem 1rem;" onclick="removeTestimonial(${idx})">Supprimer ce témoignage</button>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    window.removeTestimonial = function(idx) {
+      siteData.testimonials.splice(idx, 1);
+      renderTestimonialsManager();
+    };
+
+    document.getElementById('addTestimonialBtn').addEventListener('click', () => {
+      siteData.testimonials.push({
+        stars: 5,
+        text: "\"Nouveau témoignage client de JEY.\"",
+        author: "Client JEY",
+        role: "Shooting"
+      });
+      renderTestimonialsManager();
+    });
+
+    // --- REGROUPEMENT ET COLLECTE DES MODIFICATIONS ---
+    function collectData() {
+      // site title & desc
+      siteData.site.title = document.getElementById('siteTitle').value.trim();
+      siteData.site.description = document.getElementById('siteDesc').value.trim();
+
+      // hero content
+      siteData.hero.eyebrow = document.getElementById('heroEyebrow').value.trim();
+      siteData.hero.title = document.getElementById('heroTitle').value.trim();
+      siteData.hero.subtitle = document.getElementById('heroSubtitle').value.trim();
+      siteData.hero.ctaText = document.getElementById('heroCtaText').value.trim();
+      siteData.hero.ctaLink = document.getElementById('heroCtaLink').value.trim();
+      siteData.hero.cta2Text = document.getElementById('heroCta2Text').value.trim();
+      siteData.hero.cta2Link = document.getElementById('heroCta2Link').value.trim();
+
+      // slides paths
+      const slideInputs = document.querySelectorAll('.hero-slide-path');
+      siteData.hero.slides = Array.from(slideInputs).map(inp => inp.value.trim());
+
+      // about general
+      siteData.about.image = document.getElementById('aboutImage').value.trim();
+      siteData.about.experience = document.getElementById('aboutExperience').value.trim();
+      siteData.about.eyebrow = document.getElementById('aboutEyebrow').value.trim();
+      siteData.about.title = document.getElementById('aboutTitle').value.trim();
+      siteData.about.ctaText = document.getElementById('aboutCtaText').value.trim();
+
+      // about paragraphs
+      const paragraphs = document.querySelectorAll('.about-para-text');
+      siteData.about.descParagraphs = Array.from(paragraphs).map(ta => ta.value.trim());
+
+      // about stats
+      const statNums = document.querySelectorAll('.stat-num-input');
+      const statLabels = document.querySelectorAll('.stat-label-input');
+      siteData.about.stats = Array.from(statNums).map((numInp, idx) => {
+        const labelInp = statLabels[idx];
+        return {
+          num: parseInt(numInp.value) || 0,
+          label: labelInp.value.trim()
+        };
+      });
+
+      // gallery (has updated values in inputs)
+      const gallerySrcs = document.querySelectorAll('.gallery-src-input');
+      const galleryCats = document.querySelectorAll('.gallery-cat-select');
+      const galleryLayouts = document.querySelectorAll('.gallery-layout-select');
+      siteData.gallery = Array.from(gallerySrcs).map((srcInp, idx) => {
+        const catSel = galleryCats[idx];
+        const laySel = galleryLayouts[idx];
+        return {
+          src: srcInp.value.trim(),
+          cat: catSel.value,
+          layout: laySel.value,
+          alt: "Photographie JEY"
+        };
+      });
+
+      // services
+      const sTitles = document.querySelectorAll('.service-title');
+      const sIcons = document.querySelectorAll('.service-icon');
+      const sDescs = document.querySelectorAll('.service-desc');
+      sTitles.forEach((tInp, sIdx) => {
+        const iconInp = sIcons[sIdx];
+        const descInp = sDescs[sIdx];
+        siteData.services[sIdx].title = tInp.value.trim();
+        siteData.services[sIdx].icon = iconInp.value.trim();
+        siteData.services[sIdx].desc = descInp.value.trim();
+
+        // bullets
+        const sBullets = document.querySelectorAll(`.service-bullet-input[data-sidx="${sIdx}"]`);
+        siteData.services[sIdx].items = Array.from(sBullets).map(bInp => bInp.value.trim());
+      });
+
+      // testimonials
+      const tAuthors = document.querySelectorAll('.testimonial-author');
+      const tRoles = document.querySelectorAll('.testimonial-role');
+      const tStars = document.querySelectorAll('.testimonial-stars');
+      const tTexts = document.querySelectorAll('.testimonial-text');
+      siteData.testimonials = Array.from(tAuthors).map((authInp, idx) => {
+        return {
+          author: authInp.value.trim(),
+          role: tRoles[idx].value.trim(),
+          stars: parseInt(tStars[idx].value) || 5,
+          text: tTexts[idx].value.trim()
+        };
+      });
+
+      // contact
+      siteData.contact.email = document.getElementById('contactEmail').value.trim();
+      siteData.contact.phone = document.getElementById('contactPhone').value.trim();
+      siteData.contact.address = document.getElementById('contactAddress').value.trim();
+      siteData.contact.social = {
+        instagram: document.getElementById('socialInstagram').value.trim(),
+        facebook: document.getElementById('socialFacebook').value.trim(),
+        tiktok: document.getElementById('socialTiktok').value.trim(),
+        whatsapp: document.getElementById('socialWhatsapp').value.trim()
+      };
+    }
+
+    // Aperçu Direct (sauvegarde dans localStorage et ouvre index.html)
+    document.getElementById('previewBtn').addEventListener('click', () => {
+      collectData();
+      localStorage.setItem('jey_portfolio_data', JSON.stringify(siteData));
+      showToast("Aperçu prêt ! Ouverture/Mise à jour du site de portfolio...");
+      window.open('index.html', '_blank');
+    });
+
+    // Enregistrement Principal
+    document.getElementById('saveAllBtn').addEventListener('click', async () => {
+      collectData();
+
+      // On enregistre localement en parallèle
+      localStorage.setItem('jey_portfolio_data', JSON.stringify(siteData));
+
+      if (isLocalServer) {
+        // Enregistrement via serveur Node API
+        try {
+          const res = await fetch('/api/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(siteData)
+          });
+          if (res.ok) {
+            const dataRes = await res.json();
+            if (dataRes.status === 'ok') {
+              showToast("Modifications enregistrées directement dans data.json !");
+              return;
+            }
+          }
+          throw new Error("L'API de sauvegarde a échoué.");
+        } catch (e) {
+          showToast("Échec de la sauvegarde directe. Mode téléchargement fallback.", true);
+        }
+      }
+
+      // Mode statique (Téléchargement de fichier)
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(siteData, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "data.json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+
+      showToast("Fichier data.json généré ! Veuillez l'enregistrer dans votre dossier portfolio.");
+    });
+  </script>
+</body>
+
+</html>
