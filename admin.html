@@ -408,6 +408,27 @@
     <!-- TAB: GENERAL & HERO -->
     <div class="tab-content active" id="tab-general">
       <div class="admin-card">
+        <div class="admin-card-title">Configuration GitHub (Sauvegarde en direct sur Vercel)</div>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+          Pour enregistrer directement vos modifications sur le site en ligne (Vercel) sans passer par des commandes techniques, 
+          entrez votre jeton d'accès personnel GitHub (Token). Ce jeton reste enregistré localement sur votre navigateur.
+        </p>
+        <div class="inputs-row">
+          <div class="form-group">
+            <label>Dépôt GitHub (Format : utilisateur/depot)</label>
+            <input type="text" id="githubRepo" class="form-control" placeholder="cesarsekou/jeremieleba-" value="cesarsekou/jeremieleba-" />
+          </div>
+          <div class="form-group">
+            <label>Jeton d'accès personnel (GitHub Token)</label>
+            <input type="password" id="githubToken" class="form-control" placeholder="ghp_..." />
+          </div>
+        </div>
+        <div style="display: flex; justify-content: flex-end; margin-top: 1rem;">
+          <button class="btn btn-primary" id="saveGithubConfigBtn" style="width: auto; padding: 0.6rem 1.2rem;">Enregistrer la configuration GitHub</button>
+        </div>
+      </div>
+
+      <div class="admin-card">
         <div class="admin-card-title">Configuration Générale du Site</div>
         <div class="inputs-row">
           <div class="form-group">
@@ -668,6 +689,16 @@
     // Détection du mode de sauvegarde
     async function detectSaveMode() {
       const saveModeLabel = document.getElementById('saveModeLabel');
+      const ghToken = localStorage.getItem('jey_github_token');
+      const ghRepo = localStorage.getItem('jey_github_repo') || 'cesarsekou/jeremieleba-';
+
+      if (ghToken) {
+        isLocalServer = false;
+        saveModeLabel.textContent = `Mode : Sauvegarde GitHub Directe (${ghRepo})`;
+        saveModeLabel.style.color = "var(--primary)";
+        return;
+      }
+
       try {
         const res = await fetch('/api/status');
         if (res.ok) {
@@ -720,6 +751,30 @@
 
       bindTabs();
       fillForms();
+
+      // Bind GitHub Config inputs from localStorage
+      document.getElementById('githubRepo').value = localStorage.getItem('jey_github_repo') || 'cesarsekou/jeremieleba-';
+      document.getElementById('githubToken').value = localStorage.getItem('jey_github_token') || '';
+
+      document.getElementById('saveGithubConfigBtn').addEventListener('click', () => {
+        const repo = document.getElementById('githubRepo').value.trim();
+        const token = document.getElementById('githubToken').value.trim();
+        
+        if (repo) {
+          localStorage.setItem('jey_github_repo', repo);
+        } else {
+          localStorage.removeItem('jey_github_repo');
+        }
+        
+        if (token) {
+          localStorage.setItem('jey_github_token', token);
+          showToast("Configuration GitHub enregistrée ! Le site se mettra à jour en direct lors des enregistrements.");
+        } else {
+          localStorage.removeItem('jey_github_token');
+          showToast("Configuration GitHub supprimée. Retour au mode classique.");
+        }
+        detectSaveMode();
+      });
     }
 
     // Gestion Onglets
@@ -1154,6 +1209,59 @@
 
       // On enregistre localement en parallèle
       localStorage.setItem('jey_portfolio_data', JSON.stringify(siteData));
+
+      // 1. Sauvegarde GitHub si config existante
+      const ghToken = localStorage.getItem('jey_github_token');
+      const ghRepo = localStorage.getItem('jey_github_repo') || 'cesarsekou/jeremieleba-';
+      
+      if (ghToken) {
+        showToast("Enregistrement sur GitHub en cours...");
+        try {
+          // Récupérer le SHA actuel de data.json sur GitHub
+          const getRes = await fetch(`https://api.github.com/repos/${ghRepo}/contents/data.json`, {
+            headers: { 'Authorization': `token ${ghToken}` }
+          });
+          if (!getRes.ok) {
+            throw new Error("Impossible de lire data.json sur GitHub. Vérifiez votre dépôt ou token.");
+          }
+          const fileInfo = await getRes.json();
+          const sha = fileInfo.sha;
+
+          // Encode content in base64 (supporting UTF-8 characters)
+          const utf8Bytes = new TextEncoder().encode(JSON.stringify(siteData, null, 2));
+          let binary = '';
+          const len = utf8Bytes.byteLength;
+          for (let i = 0; i < len; i++) {
+            binary += String.fromCharCode(utf8Bytes[i]);
+          }
+          const base64Content = btoa(binary);
+
+          // Envoyer la mise à jour
+          const putRes = await fetch(`https://api.github.com/repos/${ghRepo}/contents/data.json`, {
+            method: 'PUT',
+            headers: {
+              'Authorization': `token ${ghToken}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              message: 'Mise à jour du contenu via admin panel',
+              content: base64Content,
+              sha: sha
+            })
+          });
+
+          if (putRes.ok) {
+            showToast("Modifications publiées en direct ! Vercel reconstruit le site.");
+            return;
+          } else {
+            const errData = await putRes.json();
+            throw new Error(errData.message || "Erreur lors de la mise à jour sur GitHub.");
+          }
+        } catch (e) {
+          showToast(`Erreur GitHub : ${e.message}`, true);
+          return;
+        }
+      }
 
       if (isLocalServer) {
         // Enregistrement via serveur Node API
