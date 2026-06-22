@@ -483,7 +483,11 @@
         <div class="form-group" style="margin-top: 1.5rem;">
           <label>Images du Carrousel (Glisser-Déposer / Chemins vers les images)</label>
           <div id="heroSlidesList"></div>
-          <button class="btn btn-secondary" id="addHeroSlideBtn" style="margin-top: 0.5rem; width: auto;">+ Ajouter une diapo</button>
+          <div style="display: flex; gap: 10px; margin-top: 0.5rem; flex-wrap: wrap;">
+            <button class="btn btn-secondary" id="addHeroSlideBtn" style="width: auto;">+ Ajouter une diapo</button>
+            <input type="file" id="heroSlideFile" class="form-control" accept="image/*" style="display:none;" />
+            <button class="btn btn-secondary" id="uploadHeroSlideBtn" style="width: auto;">⬆️ Importer une image (GitHub)</button>
+          </div>
         </div>
       </div>
     </div>
@@ -495,7 +499,11 @@
         <div class="inputs-row">
           <div class="form-group">
             <label>Image de Profil (Chemin ou URL)</label>
-            <input type="text" id="aboutImage" class="form-control" />
+            <div style="display: flex; gap: 10px;">
+              <input type="text" id="aboutImage" class="form-control" />
+              <input type="file" id="aboutImageFile" class="form-control" accept="image/*" style="display:none;" />
+              <button class="btn btn-secondary" id="uploadAboutImageBtn" style="width: auto; white-space: nowrap;">Importer (GitHub)</button>
+            </div>
           </div>
           <div class="form-group">
             <label>Années d'expérience (Badge)</label>
@@ -537,9 +545,15 @@
         <h3 style="font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 1rem;">Ajouter une Photo à la Galerie</h3>
         <div class="inputs-row">
           <div class="form-group">
-            <label>Chemin de la photo (Ex: WEDDING/ma_photo.jpg)</label>
-            <input type="text" id="newPhotoSrc" class="form-control" placeholder="WEDDING/..." />
+            <label>Importer un fichier image/vidéo (GitHub)</label>
+            <input type="file" id="newPhotoFile" class="form-control" accept="image/*,video/*" />
           </div>
+          <div class="form-group">
+            <label>Ou entrer un Chemin / URL direct</label>
+            <input type="text" id="newPhotoSrc" class="form-control" placeholder="WEDDING/ma_photo.jpg ou URL externe" />
+          </div>
+        </div>
+        <div class="inputs-row" style="margin-top: 1rem;">
           <div class="form-group">
             <label>Catégorie</label>
             <select id="newPhotoCat" class="form-control">
@@ -1294,6 +1308,98 @@
       downloadAnchor.remove();
 
       showToast("Fichier data.json généré ! Veuillez l'enregistrer dans votre dossier portfolio.");
+    });
+
+    // --- UPLOAD DES FICHIERS ---
+    async function uploadFileToGithub(file, folderName) {
+      const ghToken = localStorage.getItem('jey_github_token');
+      const ghRepo = localStorage.getItem('jey_github_repo') || 'cesarsekou/jeremieleba-';
+      
+      if (!ghToken) {
+        showToast("Jeton d'accès GitHub manquant. Configurez-le dans l'onglet 'Site & Hero'.", true);
+        return null;
+      }
+      
+      showToast("Téléversement du fichier en cours...");
+      
+      // Nettoyer le nom de fichier pour éviter les caractères spéciaux
+      const cleanName = file.name.toLowerCase().replace(/[^a-z0-9._-]/g, '_');
+      const fileName = `${Date.now()}_${cleanName}`;
+      const destPath = `${folderName}/${fileName}`;
+      
+      try {
+        const base64Content = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result.split(',')[1]);
+          reader.onerror = error => reject(error);
+          reader.readAsDataURL(file);
+        });
+        
+        const putRes = await fetch(`https://api.github.com/repos/${ghRepo}/contents/${destPath}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `token ${ghToken}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: `Téléversement image ${cleanName} via admin panel`,
+            content: base64Content
+          })
+        });
+        
+        if (putRes.ok) {
+          showToast("Fichier téléversé avec succès !");
+          return destPath;
+        } else {
+          const errData = await putRes.json();
+          throw new Error(errData.message || "Erreur de téléversement.");
+        }
+      } catch (e) {
+        showToast(`Échec du téléversement : ${e.message}`, true);
+        return null;
+      }
+    }
+
+    // Gestionnaires d'événements pour le téléversement
+    
+    // 1. Galerie Photo
+    document.getElementById('newPhotoFile').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const cat = document.getElementById('newPhotoCat').value || 'uploads';
+      const path = await uploadFileToGithub(file, cat.toUpperCase());
+      if (path) {
+        document.getElementById('newPhotoSrc').value = path;
+      }
+    });
+
+    // 2. À Propos - Image de profil
+    document.getElementById('uploadAboutImageBtn').addEventListener('click', () => {
+      document.getElementById('aboutImageFile').click();
+    });
+    document.getElementById('aboutImageFile').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const path = await uploadFileToGithub(file, 'ABOUT');
+      if (path) {
+        document.getElementById('aboutImage').value = path;
+        showToast("Image de profil mise à jour. N'oubliez pas d'enregistrer.");
+      }
+    });
+
+    // 3. Hero Slides (Carrousel)
+    document.getElementById('uploadHeroSlideBtn').addEventListener('click', () => {
+      document.getElementById('heroSlideFile').click();
+    });
+    document.getElementById('heroSlideFile').addEventListener('change', async (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const path = await uploadFileToGithub(file, 'HERO');
+      if (path) {
+        siteData.hero.slides.push(path);
+        renderHeroSlides();
+        showToast("Image ajoutée au carrousel. N'oubliez pas d'enregistrer.");
+      }
     });
   </script>
 </body>
